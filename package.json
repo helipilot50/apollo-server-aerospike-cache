@@ -1,0 +1,24 @@
+{
+  "name": "apollo-server-cache-aerospike",
+  "version": "0.5.0",
+  "author": "helipilot50@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/helipilot50/apollo-server-aerospike-cache"
+  },
+  "homepage": "https://github.com/helipilot50/apollo-server-aerospike-cache#readme",
+  "bugs": {
+    "url": "https://github.com/helipilot50/apollo-server-aerospike-cache/issues"
+  },
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "dependencies": {
+    "apollo-server-caching": "file:../apollo-server-caching",
+    "apollo-server-env": "file:../apollo-server-env",
+    "dataloader": "^1.4.0",
+    "aerospike": "^3.11.0"
+  }
+}
