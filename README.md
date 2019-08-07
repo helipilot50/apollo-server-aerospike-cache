@@ -1,4 +1,4 @@
-# apollo-server-aerospike-cache
+# Apollo Server cache using Aerospike
 Apollo Server cache using Aerospike
 
 
