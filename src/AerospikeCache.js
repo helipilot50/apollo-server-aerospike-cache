@@ -1,5 +1,5 @@
 import { KeyValueCache } from 'apollo-server-caching';
-import  aerospike from 'aerospike';
+import aerospike from 'aerospike';
 
 
 export class AerospikeCache implements KeyValueCache {
@@ -8,11 +8,11 @@ export class AerospikeCache implements KeyValueCache {
     const { cluster, namespace, set, defaultTTL, valueBinName } = conf;
     this.namespace = namespace;
     this.set = set;
-    this.meta = { ttl: defaultTTL};
+    this.meta = { ttl: defaultTTL };
     this.valueBinName = valueBinName;
     this.client = await aerospike.connect(cluster);
   }
-  
+
   makeKey(key) {
     return new Aerospike.Key(this.namespace, this.set, key)
   }
@@ -43,25 +43,26 @@ export class AerospikeCache implements KeyValueCache {
     return true;
   }
 
-  async flush(): {
-    var scan = client.scan('test', 'demo')
-scan.concurrent = true
-scan.nobins = false
+  async flush() {
+    var scan = client.scan(this.namespace, this.set)
+    scan.concurrent = true;
+    scan.nobins = true;
 
-var recordCount = 0
-var stream = scan.foreach()
-stream.on('data', function (record) {
-  recordCount++
-  if (recordCount % 1000 === 0) {
-    console.log('%d records scanned', recordCount)
-  }
-})
-stream.on('error', function (error) {
-  console.error('Error while scanning: %s [%d]', error.message, error.code)
-})
-stream.on('end', function () {
-  console.log('Total records scanned: %d', recordCount)
-})
+    var recordCount = 0
+    var stream = scan.foreach()
+    stream.on('data', function (record) {
+      this.client.remove(record.key.digest);
+      recordCount++
+      if (recordCount % 1000 === 0) {
+        console.log('%d records deleted', recordCount)
+      }
+    })
+    stream.on('error', function (error) {
+      console.error('Error while deleting: %s [%d]', error.message, error.code)
+    })
+    stream.on('end', function () {
+      console.log('Total records deleted: %d', recordCount)
+    })
   }
 
   async close() {
