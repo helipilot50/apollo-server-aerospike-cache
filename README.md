@@ -1,10 +1,7 @@
 # Apollo Server cache using Aerospike
-Apollo Server cache using Aerospike
-
 This package exports an implementation of KeyValueCache that allows using Aerospike as a backing store for resource caching in [Apollo Data Sources](https://www.apollographql.com/docs/apollo-server/features/data-sources/).
 
 ## Usage
----
 
 ```javascript
 const { AerospikeCache } = require('apollo-server-cache-aerospike');
