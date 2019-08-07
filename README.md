@@ -1,5 +1,5 @@
 # Apollo Server cache using Aerospike
-This package exports an implementation of KeyValueCache that allows using Aerospike as the cache for resource caching in [Apollo Data Sources](https://www.apollographql.com/docs/apollo-server/features/data-sources/).
+This package exports an implementation of KeyValueCache using Aerospike as the cache for resource caching in [Apollo Data Sources](https://www.apollographql.com/docs/apollo-server/features/data-sources/).
 
 ## Usage
 
