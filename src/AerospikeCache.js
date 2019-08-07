@@ -1,8 +1,6 @@
-import { KeyValueCache } from 'apollo-server-caching';
 import aerospike from 'aerospike';
 
-
-export class AerospikeCache implements KeyValueCache {
+export class AerospikeCache  {
 
   constructor(conf) {
     const { cluster, namespace, set, defaultTTL, valueBinName } = conf;
