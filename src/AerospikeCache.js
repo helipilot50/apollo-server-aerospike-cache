@@ -1,4 +1,5 @@
 import aerospike from 'aerospike';
+// const aerospike = require('aerospike');
 
 export default class AerospikeCache {
 
