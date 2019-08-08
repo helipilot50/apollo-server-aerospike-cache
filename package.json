@@ -11,11 +11,21 @@
   "bugs": {
     "url": "https://github.com/helipilot50/apollo-server-aerospike-cache/issues"
   },
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "test": "npm run build && mocha --require @babel/register"
+  },
   "engines": {
     "node": ">=8"
   },
   "dependencies": {
     "aerospike": "^3.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "mocha": "^6.2.0"
   }
 }

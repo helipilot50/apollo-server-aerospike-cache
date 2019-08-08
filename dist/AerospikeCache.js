@@ -1,36 +1,39 @@
 import aerospike from 'aerospike';
-
 export default class AerospikeCache {
-
   constructor(conf) {
-    const { cluster, namespace, set, defaultTTL, valueBinName } = conf;
+    const {
+      cluster,
+      namespace,
+      set,
+      defaultTTL,
+      valueBinName
+    } = conf;
     this.namespace = namespace;
     this.set = set;
-    this.meta = { ttl: defaultTTL };
+    this.meta = {
+      ttl: defaultTTL
+    };
     this.valueBinName = valueBinName;
-    
     return (async () => {
       this.client = await aerospike.connect(cluster);
-      return this; 
+      return this;
     })();
   }
 
   makeKey(key) {
-    return new Aerospike.Key(this.namespace, this.set, key)
+    return new Aerospike.Key(this.namespace, this.set, key);
   }
 
-  async set(
-    key, // string 
-    data, // string
-    options, // { ttl: number }
-  ) {
-    let bins = {}
+  async set(key, // string 
+  data, // string
+  options) // { ttl: number }
+  {
+    let bins = {};
     bins[this.valueBinName] = data;
     let meta;
-    if (options.ttl)
-      meta = { ttl: options.ttl };
-    else
-      meta = this.meta;
+    if (options.ttl) meta = {
+      ttl: options.ttl
+    };else meta = this.meta;
     await this.client.put(makeKey(key), bins, meta);
     return;
   }
@@ -46,29 +49,30 @@ export default class AerospikeCache {
   }
 
   async flush() {
-    var scan = client.scan(this.namespace, this.set)
+    var scan = client.scan(this.namespace, this.set);
     scan.concurrent = true;
     scan.nobins = true;
-
-    var recordCount = 0
-    var stream = scan.foreach()
+    var recordCount = 0;
+    var stream = scan.foreach();
     stream.on('data', function (record) {
       this.client.remove(record.key.digest);
-      recordCount++
+      recordCount++;
+
       if (recordCount % 1000 === 0) {
-        console.log('%d records deleted', recordCount)
+        console.log('%d records deleted', recordCount);
       }
-    })
+    });
     stream.on('error', function (error) {
-      console.error('Error while deleting: %s [%d]', error.message, error.code)
-    })
+      console.error('Error while deleting: %s [%d]', error.message, error.code);
+    });
     stream.on('end', function () {
-      console.log('Total records deleted: %d', recordCount)
-    })
+      console.log('Total records deleted: %d', recordCount);
+    });
   }
 
   async close() {
     await this.client.close();
     return;
   }
+
 }
