@@ -1,6 +1,6 @@
 import aerospike from 'aerospike';
 
-export class AerospikeCache  {
+export default class AerospikeCache  {
 
   constructor(conf) {
     const { cluster, namespace, set, defaultTTL, valueBinName } = conf;
