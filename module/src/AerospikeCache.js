@@ -1,16 +1,6 @@
 const Aerospike = require('aerospike');
-
-class AerospikeOptions {
-  constructor(namespace, set, valueBinName, defaultTTL, cluster) {
-    this.namespace = namespace;
-    this.set = set;
-    this.valueBinName = valueBinName;
-    this.defaultTTL = defaultTTL
-    this.cluster = cluster;
-  }
-}
 class AerospikeCache {
-
+  
   constructor(options) {
     this.namespace = options.namespace;
     this.setname = options.set;
@@ -38,7 +28,7 @@ class AerospikeCache {
     let bins;
     bins[this.valueBinName] = data;
     let meta;
-    if (options.ttl)
+    if (options && options.ttl)
       meta = { ttl: options.ttl };
     else
       meta = this.meta;
@@ -89,5 +79,4 @@ class AerospikeCache {
 
 module.exports = {
   AerospikeCache,
-  AerospikeOptions,
 }
