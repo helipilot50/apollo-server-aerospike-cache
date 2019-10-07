@@ -1,4 +1,4 @@
-import Aerospike from 'aerospike';
+const Aerospike = require('aerospike');
 
 export class AerospikeOptions {
   constructor(namespace, set, valueBinName, defaultTTL, cluster) {
@@ -9,25 +9,6 @@ export class AerospikeOptions {
     this.cluster = cluster;
   }
 }
-
-export class AerospikeNode {
-  constructor(addr, port) {
-    this.addr = addr;
-    this.port = port;
-  }
-}
-export class AerospikeLog {
-  constructor(level) {
-    this.level = level;
-  }
-}
-export class AerospikeConfiguration {
-  constructor(hosts, log) {
-    this.hosts = hosts;
-    this.log = log;
-  }
-}
-
 export class AerospikeCache {
 
   constructor(options) {
@@ -69,7 +50,7 @@ export class AerospikeCache {
   }
 
   async delete(key) {
-    this.client.remove(this.makeKey(key));
+    await this.client.remove(this.makeKey(key));
     return true;
   }
 

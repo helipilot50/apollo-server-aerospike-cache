@@ -1,8 +1,4 @@
-import { AerospikeCache, AerospikeOptions, AerospikeNode, AerospikeLog, AerospikeConfiguration } from './AerospikeCache';
+const AerospikeCache = require('./AerospikeCache');
 export {
     AerospikeCache,
-    AerospikeOptions,
-    AerospikeNode,
-    AerospikeLog,
-    AerospikeConfiguration
 };
