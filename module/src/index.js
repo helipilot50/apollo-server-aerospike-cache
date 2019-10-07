@@ -1,4 +1,5 @@
-const AerospikeCache = require('./AerospikeCache');
-export {
+const { AerospikeCache } = require('./AerospikeCache');
+
+module.exports = {
     AerospikeCache,
 };

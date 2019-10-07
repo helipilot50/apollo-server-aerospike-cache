@@ -1,6 +1,6 @@
 const Aerospike = require('aerospike');
 
-export class AerospikeOptions {
+class AerospikeOptions {
   constructor(namespace, set, valueBinName, defaultTTL, cluster) {
     this.namespace = namespace;
     this.set = set;
@@ -9,7 +9,7 @@ export class AerospikeOptions {
     this.cluster = cluster;
   }
 }
-export class AerospikeCache {
+class AerospikeCache {
 
   constructor(options) {
     this.namespace = options.namespace;
@@ -25,6 +25,7 @@ export class AerospikeCache {
   }
 
   makeKey(key) {
+    console.log(`.....makeKey ${key}`)
     return new Aerospike.Key(this.namespace, this.set, key)
   }
 
@@ -33,6 +34,7 @@ export class AerospikeCache {
     data,
     options
   ) {
+    console.log(`.....set ${key}:${data}`);
     let bins;
     bins[this.valueBinName] = data;
     let meta;
@@ -45,16 +47,19 @@ export class AerospikeCache {
   }
 
   async get(key) {
+    console.log(`.....get ${key}`);
     let record = await this.client.get(this.makeKey(key));
     return record.bins[this.valueBinName];
   }
 
   async delete(key) {
+    console.log(`.....delete ${key}`);
     await this.client.remove(this.makeKey(key));
     return true;
   }
 
   async flush() {
+    console.log(`.....flush`);
     var scan = this.client.scan(this.namespace, this.set)
     scan.concurrent = true;
     scan.nobins = true;
@@ -68,7 +73,7 @@ export class AerospikeCache {
         console.log('%d records deleted', recordCount)
       }
     })
-    stream.on('error', (error: { message: any; code: any; }) => {
+    stream.on('error', (error) => {
       console.error('Error while deleting: %s [%d]', error.message, error.code)
     })
     stream.on('end', () => {
@@ -80,4 +85,9 @@ export class AerospikeCache {
     await this.client.close();
     return;
   }
+}
+
+module.exports = {
+  AerospikeCache,
+  AerospikeOptions,
 }
