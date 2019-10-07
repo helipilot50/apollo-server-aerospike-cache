@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import AerospikeCache from '../src/AerospikeCache';
+import { AerospikeCache } from '../src/AerospikeCache';
 
 describe('AerospikeCache', () => {
     let asCache;
