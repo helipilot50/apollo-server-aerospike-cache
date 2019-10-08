@@ -1,7 +1,7 @@
 // require('dotenv').config();
 
 const { ApolloServer } = require('apollo-server');
-const { AerospikeCache } = require('../../module/src');
+const AerospikeCache  = require('../../module/src/AerospikeCache');
 const isEmail = require('isemail');
 
 const typeDefs = require('./schema');
@@ -44,20 +44,21 @@ const server = new ApolloServer({
   dataSources,
   context,
   cache: new AerospikeCache(
-    'test',
-    'entity-cache',
-    'cache-value',
-    300,
     {
-      hosts: [
-        { addr: "localhost", port: 3000 }
-      ]
+      namespace: 'test',
+      set: 'entity-cache',
+      valueBinName: 'cache-value',
+      cluster: {
+        hosts: [
+          { addr: "localhost", port: 3000 }
+        ]
+      }
     }
   ),
   cacheControl: {
     defaultMaxAge: 5,
-    stripFormattedExtensions: false,
-    calculateCacheControlHeaders: false,
+    // stripFormattedExtensions: false,
+    // calculateCacheControlHeaders: false,
   },
   engine: {
     apiKey: process.env.ENGINE_API_KEY,

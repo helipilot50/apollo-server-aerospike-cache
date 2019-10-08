@@ -12,7 +12,7 @@ const typeDefs = gql`
       """
       after: String
     ): LaunchConnection!
-    launch(id: ID!): Launch
+    launch(id: ID!): Launch  @cacheControl(maxAge: 240)
     me: User
   }
 
@@ -43,7 +43,7 @@ const typeDefs = gql`
     launches: [Launch]!
   }
 
-  type Launch {
+  type Launch  @cacheControl(maxAge: 240) {
     id: ID!
     site: String
     mission: Mission
