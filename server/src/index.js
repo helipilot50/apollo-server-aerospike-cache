@@ -1,7 +1,8 @@
 // require('dotenv').config();
 
 const { ApolloServer } = require('apollo-server');
-const AerospikeCache  = require('../../module/src/AerospikeCache');
+const responseCachePlugin = require ('apollo-server-plugin-response-cache');
+const ApolloCacheAerospike  = require('apollo-server-cache-aerospike');
 const isEmail = require('isemail');
 
 const typeDefs = require('./schema');
@@ -43,7 +44,7 @@ const server = new ApolloServer({
   resolvers,
   dataSources,
   context,
-  cache: new AerospikeCache(
+  cache: new ApolloCacheAerospike(
     {
       namespace: 'test',
       set: 'entity-cache',
@@ -56,10 +57,11 @@ const server = new ApolloServer({
     }
   ),
   cacheControl: {
-    defaultMaxAge: 5,
+    defaultMaxAge: 30,
     // stripFormattedExtensions: false,
     // calculateCacheControlHeaders: false,
   },
+  plugins: [responseCachePlugin()],
   engine: {
     apiKey: process.env.ENGINE_API_KEY,
     ...internalEngineDemo,
@@ -71,7 +73,7 @@ const server = new ApolloServer({
 if (process.env.NODE_ENV !== 'test')
   server
     .listen({ port: 4000 })
-    .then(({ url }) => console.log(`🚀 app running at ${url}`));
+    .then(({ url }) => console.log(`🚀 app running at ${url}`)); 
 
 // export all the important pieces for integration/e2e tests to use
 module.exports = {
