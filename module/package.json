@@ -2,6 +2,7 @@
   "name": "apollo-server-cache-aerospike",
   "version": "0.5.0",
   "author": "helipilot50@gmail.com",
+  "description": "Apollo Server cache using Aerospike",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,22 +14,27 @@
   },
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src -d dist",
-    "test": "mocha"
+    "build": "babel src -d dist --copy-source",
+    "test": "mocha test/**/*.spec.js  --timeout 15000 --exit"
   },
   "engines": {
     "node": ">=8"
   },
   "dependencies": {
+    "@babel/runtime": "^7.6.3",
     "aerospike": "^3.11.0",
-    "apollo-server-caching": "^0.5.0"
+    "apollo-server-caching": "^0.5.0",
+    "babel-runtime": "^6.26.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
-    "@babel/register": "^7.4.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
     "chai": "^4.2.0",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "mocha": "^5.2.0"
   }
 }

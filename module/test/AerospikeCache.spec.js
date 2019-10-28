@@ -1,5 +1,5 @@
-var { expect } = require('chai');
-var AerospikeCache = require('../src/AerospikeCache');
+const { expect } = require('chai');
+const { ApolloCacheAerospike } = require('../src/index');
 
 const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -9,7 +9,7 @@ describe('AerospikeCache', () => {
     let asCache;
 
     before(() => {
-        asCache = new AerospikeCache(
+        asCache = new ApolloCacheAerospike(
 
             {
                 namespace: 'test',
@@ -50,7 +50,7 @@ describe('AerospikeCache', () => {
         expect(await asCache.get('short')).to.be.undefined;
         expect(await asCache.get('long')).to.equal('l');
         await sleep(4000);
-        expect(await asCache.get('short')).to.beundefined;;
-        expect(await asCache.get('long')).to.beundefined;;
+        expect(await asCache.get('short')).to.be.undefined;;
+        expect(await asCache.get('long')).to.be.undefined;;
       });
 });

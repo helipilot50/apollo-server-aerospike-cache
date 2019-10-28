@@ -1,12 +1,10 @@
 const Aerospike = require('aerospike');
-class AerospikeCache {
+class ApolloCacheAerospike {
 
   constructor(options) {
     this.options = options;
-    // this.meta = { ttl: options.defaultTTL };
-    // this.valueBinName = options.valueBinName;
-    // this.cluster = options.cluster;
-
+    this.hits = 0;
+    this.misses = 0;
   }
 
   async asClient() {
@@ -17,7 +15,6 @@ class AerospikeCache {
   }
 
   makeKey(key) {
-    // console.log(`.....makeKey ${key}`)
     return new Aerospike.Key(this.options.namespace, this.options.set, key)
   }
 
@@ -26,7 +23,6 @@ class AerospikeCache {
     data,
     options
   ) {
-    console.log(`.....set ${key}:${data}`);
     const client = await this.asClient();
     let bins = {};
     bins[this.valueBinName] = data;
@@ -41,22 +37,20 @@ class AerospikeCache {
   }
 
   async get(key) {
-    // console.log(`.....get ${key}`);
     try {
       const client = await this.asClient();
       let record = await client.get(this.makeKey(key));
-      console.log(`cache hit ${key}`);
+      this.hits += 1;
       return record.bins[this.valueBinName];
     } catch (err) {
       if (err.code === Aerospike.status.ERR_RECORD_NOT_FOUND)
-      console.log(`cache miss ${key}`);
-        return;
+        this.misses += 1;
+      return;
       throw err;
     }
   }
 
   async delete(key) {
-    console.log(`.....delete ${key}`);
     try {
       const client = await this.asClient();
       await client.remove(this.makeKey(key));
@@ -69,7 +63,6 @@ class AerospikeCache {
   }
 
   async flush() {
-    // console.log(`.....flush`);
     const client = await this.asClient();
     var scan = await client.scan(this.namespace, this.set)
     scan.concurrent = true;
@@ -97,5 +90,4 @@ class AerospikeCache {
     return;
   }
 }
-
-module.exports = AerospikeCache;
+module.exports = ApolloCacheAerospike;
