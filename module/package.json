@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/helipilot50/apollo-server-aerospike-cache"
+    "url": "git+https://github.com/helipilot50/apollo-server-aerospike-cache.git"
   },
   "homepage": "https://github.com/helipilot50/apollo-server-aerospike-cache#readme",
   "bugs": {
