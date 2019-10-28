@@ -6,6 +6,7 @@ This package exports an implementation of KeyValueCache using Aerospike as the c
 ## Usage
 
 ```javascript
+const { ApolloServer } = require('apollo-server');
 const { ApolloCacheAerospike } = require('apollo-server-cache-aerospike');
 const responseCachePlugin = require ('apollo-server-plugin-response-cache');
 
@@ -33,4 +34,4 @@ const server = new ApolloServer({
   }),
 });
 ```
-# 
+For documentation on the Aerospike cluster options bassed to the Aerocpike client, refer to [here](https://www.aerospike.com/docs/client/nodejs/usage/connect/)
