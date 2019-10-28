@@ -24,7 +24,7 @@
     "aerospike",
     "apollo",
     "cache",
-    "LeyValueCache"
+    "KeyValueCache"
   ],
   "dependencies": {
     "@babel/runtime": "^7.6.3",
