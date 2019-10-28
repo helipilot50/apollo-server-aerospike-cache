@@ -20,6 +20,12 @@
   "engines": {
     "node": ">=8"
   },
+  "keywords": [
+    "aerospike",
+    "apollo",
+    "cache",
+    "LeyValueCache"
+  ],
   "dependencies": {
     "@babel/runtime": "^7.6.3",
     "aerospike": "^3.11.0",
