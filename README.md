@@ -1,5 +1,4 @@
-[![npm version](https://badge.fury.io/js/apollo-server-aerospike-cache.svg)](https://badge.fury.io/js/apollo-server-aerospike-cache)
-[![Build Status](https://circleci.com/gh/apollographql/apollo-server.svg?style=svg)](https://circleci.com/gh/apollographql/apollo-server)
+
                                                       
                                                           
 # Apollo Server cache using Aerospike
