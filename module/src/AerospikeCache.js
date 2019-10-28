@@ -1,5 +1,5 @@
 const Aerospike = require('aerospike');
-export default class ApolloCacheAerospike {
+class ApolloCacheAerospike {
 
   constructor(options) {
     this.options = options;
@@ -90,4 +90,4 @@ export default class ApolloCacheAerospike {
     return;
   }
 }
-
+module.exports = ApolloCacheAerospike;

@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import {ApolloCacheAerospike}   from '../src/index';
+const { expect } = require('chai');
+const { ApolloCacheAerospike } = require('../src/index');
 
 const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))

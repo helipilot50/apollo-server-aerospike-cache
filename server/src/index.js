@@ -2,7 +2,7 @@
 
 const { ApolloServer } = require('apollo-server');
 const responseCachePlugin = require ('apollo-server-plugin-response-cache');
-const ApolloCacheAerospike  = require('apollo-server-cache-aerospike');
+const { ApolloCacheAerospike }  = require('apollo-server-cache-aerospike');
 const isEmail = require('isemail');
 
 const typeDefs = require('./schema');

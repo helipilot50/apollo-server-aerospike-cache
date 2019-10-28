@@ -1,4 +1,5 @@
-import ApolloCacheAerospike from './AerospikeCache';
-export {
-    ApolloCacheAerospike
-}
+const ApolloCacheAerospike = require('./AerospikeCache');
+
+module.exports = {
+  ApolloCacheAerospike
+};

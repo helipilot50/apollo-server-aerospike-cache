@@ -1,19 +1,14 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
 var Aerospike = require('aerospike');
 
@@ -21,20 +16,19 @@ var ApolloCacheAerospike =
 /*#__PURE__*/
 function () {
   function ApolloCacheAerospike(options) {
-    _classCallCheck(this, ApolloCacheAerospike);
-
+    (0, _classCallCheck2["default"])(this, ApolloCacheAerospike);
     this.options = options;
     this.hits = 0;
     this.misses = 0;
   }
 
-  _createClass(ApolloCacheAerospike, [{
+  (0, _createClass2["default"])(ApolloCacheAerospike, [{
     key: "asClient",
     value: function () {
-      var _asClient = _asyncToGenerator(
+      var _asClient = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee() {
-        return regeneratorRuntime.wrap(function _callee$(_context) {
+      _regenerator["default"].mark(function _callee() {
+        return _regenerator["default"].wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -74,11 +68,11 @@ function () {
   }, {
     key: "set",
     value: function () {
-      var _set = _asyncToGenerator(
+      var _set = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(key, data, options) {
+      _regenerator["default"].mark(function _callee2(key, data, options) {
         var client, bins, meta;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -115,11 +109,11 @@ function () {
   }, {
     key: "get",
     value: function () {
-      var _get = _asyncToGenerator(
+      var _get = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee3(key) {
+      _regenerator["default"].mark(function _callee3(key) {
         var client, record;
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        return _regenerator["default"].wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -160,11 +154,11 @@ function () {
   }, {
     key: "delete",
     value: function () {
-      var _delete2 = _asyncToGenerator(
+      var _delete2 = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee4(key) {
+      _regenerator["default"].mark(function _callee4(key) {
         var client;
-        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        return _regenerator["default"].wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -211,11 +205,11 @@ function () {
   }, {
     key: "flush",
     value: function () {
-      var _flush = _asyncToGenerator(
+      var _flush = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee5() {
+      _regenerator["default"].mark(function _callee5() {
         var client, scan, recordCount, stream;
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        return _regenerator["default"].wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -265,10 +259,10 @@ function () {
   }, {
     key: "close",
     value: function () {
-      var _close = _asyncToGenerator(
+      var _close = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee6() {
-        return regeneratorRuntime.wrap(function _callee6$(_context6) {
+      _regenerator["default"].mark(function _callee6() {
+        return _regenerator["default"].wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -293,8 +287,7 @@ function () {
       return close;
     }()
   }]);
-
   return ApolloCacheAerospike;
 }();
 
-exports["default"] = ApolloCacheAerospike;
+module.exports = ApolloCacheAerospike;
