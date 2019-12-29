@@ -1,5 +1,5 @@
-[![npm version](https://badge.fury.io/js/apollo-server-aerospike-cache.svg)](https://badge.fury.io/js/apollo-server-aerospike-cache)
-[![Build Status](https://circleci.com/gh/apollographql/apollo-server.svg?style=svg)](https://circleci.com/gh/apollographql/apollo-server)                                                    
+![npm package](https://img.shields.io/badge/npm%20package-0.5.1-brightgreen.svg)
+                                                   
                                                           
 # Apollo Server cache using Aerospike
 This package exports an implementation of KeyValueCache using Aerospike as the cache for resource caching in [Apollo Data Sources](https://www.apollographql.com/docs/apollo-server/features/data-sources/).
