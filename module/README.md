@@ -1,4 +1,4 @@
-![npm package](https://img.shields.io/badge/npm%20package-0.5.1-brightgreen.svg)
+[![npm package](https://img.shields.io/badge/npm%20package-0.5.1-brightgreen.svg)](https://www.npmjs.com/package/apollo-server-cache-aerospike)
                                                    
                                                           
 # Apollo Server cache using Aerospike
