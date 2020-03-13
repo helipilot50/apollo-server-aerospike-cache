@@ -2,7 +2,7 @@
   "name": "apollo-server-cache-aerospike",
   "version": "0.5.1",
   "author": "helipilot50@gmail.com",
-  "description": "Apollo Server cache using Aerospike",
+  "description": "Apollo Server Cache using Aerospike",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "test": "mocha test/**/*.spec.js  --timeout 15000 --exit"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "keywords": [
     "aerospike",

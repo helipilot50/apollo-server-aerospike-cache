@@ -3,7 +3,7 @@ const { ApolloCacheAerospike } = require('../src/index');
 
 const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
-  }
+}
 
 describe('AerospikeCache', () => {
     let asCache;
@@ -17,12 +17,13 @@ describe('AerospikeCache', () => {
                 valueBinName: 'cache-value',
                 cluster: {
                     hosts: [
-                        { addr: "localhost", port: 3000 }
+                        { addr: "aerospikedb", port: 3000 }
                     ]
                 }
             }
         );
     });
+
 
     it('should have instance', async () => {
         expect(asCache).to.be.not.null;
@@ -52,5 +53,5 @@ describe('AerospikeCache', () => {
         await sleep(4000);
         expect(await asCache.get('short')).to.be.undefined;;
         expect(await asCache.get('long')).to.be.undefined;;
-      });
+    });
 });

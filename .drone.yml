@@ -1,0 +1,30 @@
+kind: pipeline
+type: docker
+name: apollo-cache-aerospike
+
+steps:
+  - name: test
+    image: node:10
+    commands:
+      - yarn install
+      - yarn test
+  - name: npm
+    image: plugins/npm
+    settings:
+      username: helipilot50
+      password:
+        from_secret: npm_password
+      email: helipilot50@gmail.com
+      folder: module/dist
+trigger:
+  branch:
+    - master
+services:
+  - name: aerospikedb
+    image: aerospike/aerospike-server:latest
+    ports:
+      - 3000:3000
+      - 3001:3001
+    environment:
+      - NAMESPACE: "test"
+      - MEM_GB: 12
