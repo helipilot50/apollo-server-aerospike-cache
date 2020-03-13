@@ -12,9 +12,7 @@ var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/creat
 
 var Aerospike = require('aerospike');
 
-var ApolloCacheAerospike =
-/*#__PURE__*/
-function () {
+var ApolloCacheAerospike = /*#__PURE__*/function () {
   function ApolloCacheAerospike(options) {
     (0, _classCallCheck2["default"])(this, ApolloCacheAerospike);
     this.options = options;
@@ -25,9 +23,7 @@ function () {
   (0, _createClass2["default"])(ApolloCacheAerospike, [{
     key: "asClient",
     value: function () {
-      var _asClient = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee() {
+      var _asClient = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
         return _regenerator["default"].wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -68,9 +64,7 @@ function () {
   }, {
     key: "set",
     value: function () {
-      var _set = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee2(key, data, options) {
+      var _set = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(key, data, options) {
         var client, bins, meta;
         return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
@@ -109,9 +103,7 @@ function () {
   }, {
     key: "get",
     value: function () {
-      var _get = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee3(key) {
+      var _get = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(key) {
         var client, record;
         return _regenerator["default"].wrap(function _callee3$(_context3) {
           while (1) {
@@ -154,9 +146,7 @@ function () {
   }, {
     key: "delete",
     value: function () {
-      var _delete2 = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee4(key) {
+      var _delete2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(key) {
         var client;
         return _regenerator["default"].wrap(function _callee4$(_context4) {
           while (1) {
@@ -205,9 +195,7 @@ function () {
   }, {
     key: "flush",
     value: function () {
-      var _flush = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee5() {
+      var _flush = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5() {
         var client, scan, recordCount, stream;
         return _regenerator["default"].wrap(function _callee5$(_context5) {
           while (1) {
@@ -259,9 +247,7 @@ function () {
   }, {
     key: "close",
     value: function () {
-      var _close = (0, _asyncToGenerator2["default"])(
-      /*#__PURE__*/
-      _regenerator["default"].mark(function _callee6() {
+      var _close = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6() {
         return _regenerator["default"].wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {

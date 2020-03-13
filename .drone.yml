@@ -6,19 +6,23 @@ steps:
   - name: test
     image: node:10
     commands:
-      - yarn install
-      - yarn test
-  - name: npm
-    image: plugins/npm
-    settings:
-      username: helipilot50
-      password:
-        from_secret: npm_password
-      email: helipilot50@gmail.com
-      folder: module/dist
+      - npm install
+      - npm run build
+      - npm run test
+  # - name: npm
+  #   image: plugins/npm
+  #   commands:
+  #     - npm install
+  #     - npm run build
+  #   settings:
+  #     username: helipilot50
+  #     password:
+  #       from_secret: npm_password
+  #     email: helipilot50@gmail.com
+  #     folder: module/dist
 trigger:
   branch:
-    - master
+    - develop
 services:
   - name: aerospikedb
     image: aerospike/aerospike-server:latest
