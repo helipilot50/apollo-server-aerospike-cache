@@ -1,6 +1,6 @@
 {
   "name": "apollo-server-cache-aerospike",
-  "version": "0.5.1",
+  "version": "0.5.9",
   "author": "helipilot50@gmail.com",
   "description": "Apollo Server Cache using Aerospike",
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src -d dist --copy-source",
+    "build": "cp package.json dist/package.json && babel src -d dist --copy-files",
     "test": "mocha test/**/*.spec.js  --timeout 15000 --exit"
   },
   "engines": {
