@@ -13,15 +13,15 @@ steps:
         - master
         - develop
         - feature/*
-  # - name: test
-  #   image: node:10
-  #   commands:
-  #     - npm run test
-  #   when:
-  #     branch:
-  #       - master
-  #       - develop
-  #       - feature/*
+  - name: test
+    image: node:10
+    commands:
+      - npm run test
+    when:
+      branch:
+        - master
+        - develop
+        - feature/*
   - name: publish
     image: plugins/npm
     settings:
@@ -33,9 +33,9 @@ steps:
     when:
       branch:
         - master
-# services:
-#   - name: aerospikedb
-#     image: aerospike/aerospike-server:latest
-#     environment:
-#       NAMESPACE: "test"
-#       MEM_GB: 12
+services:
+  - name: aerospikedb
+    image: aerospike/aerospike-server:latest
+    environment:
+      NAMESPACE: "test"
+      MEM_GB: 12
