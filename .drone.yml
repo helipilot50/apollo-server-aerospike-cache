@@ -26,16 +26,16 @@ steps:
     image: plugins/npm
     settings:
       username: helipilot50
-      password: $NPM_PASSWORD
+      password: ${NPM_PASSWORD}
       email: helipilot50@gmail.com
-      token: $NPM_TOKEN
+      token: ${NPM_TOKEN}
       folder: dist
     when:
       branch:
         - master
-services:
-  - name: aerospikedb
-    image: aerospike/aerospike-server:latest
-    environment:
-      NAMESPACE: "test"
-      MEM_GB: 12
+# services:
+#   - name: aerospikedb
+#     image: aerospike/aerospike-server:latest
+#     environment:
+#       NAMESPACE: "test"
+#       MEM_GB: 12
