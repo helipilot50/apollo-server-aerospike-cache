@@ -28,7 +28,7 @@ steps:
       username: helipilot50
       password: $${NPM_PASSWORD}
       email: helipilot50@gmail.com
-      token: $${NPM_TOKEN}
+      # token: $${NPM_TOKEN}
       folder: dist
     when:
       branch:
