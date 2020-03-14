@@ -9,20 +9,17 @@ steps:
       - npm install
       - npm run build
       - npm run test
-  # - name: npm
-  #   image: plugins/npm
-  #   commands:
-  #     - npm install
-  #     - npm run build
-  #   settings:
-  #     username: helipilot50
-  #     password:
-  #       from_secret: npm_password
-  #     email: helipilot50@gmail.com
-  #     folder: module/dist
+  - name: npm
+    image: plugins/npm
+    settings:
+      username: helipilot50
+      password:
+        from_secret: npm_password
+      email: helipilot50@gmail.com
+      folder: dist
 trigger:
   branch:
-    - develop
+    - master
 services:
   - name: aerospikedb
     image: aerospike/aerospike-server:latest
