@@ -27,7 +27,7 @@ steps:
     settings:
       username: helipilot50
       password:
-        from_secret: npm_password
+        from_secret: ${{npm_password}}
       email: helipilot50@gmail.com
       folder: dist
     when:
