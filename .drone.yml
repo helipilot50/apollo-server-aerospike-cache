@@ -26,9 +26,6 @@ trigger:
 services:
   - name: aerospikedb
     image: aerospike/aerospike-server:latest
-    ports:
-      - 3000:3000
-      - 3001:3001
     environment:
       - NAMESPACE: "test"
       - MEM_GB: 12
