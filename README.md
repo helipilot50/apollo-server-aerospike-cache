@@ -4,6 +4,8 @@
 # Apollo Server cache using Aerospike
 This package exports an implementation of KeyValueCache using Aerospike as the cache for resource caching in [Apollo Data Sources](https://www.apollographql.com/docs/apollo-server/features/data-sources/).
 
+[![Build Status](https://cloud.drone.io/api/badges/helipilot50/apollo-server-aerospike-cache/status.svg)](https://cloud.drone.io/helipilot50/apollo-server-aerospike-cache)
+
 ## Usage
 
 ```javascript
