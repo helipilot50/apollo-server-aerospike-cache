@@ -25,12 +25,12 @@ steps:
   - name: npm
     image: plugins/npm
     settings:
-      username: helipilot50
-      password:
-        from_secret: $${NPM_PASSWORD}
-      email: helipilot50@gmail.com
+      # username: helipilot50
+      # password:
+      #   from_secret: NPM_PASSWORD
+      # email: helipilot50@gmail.com
       token:
-        from_secret: $${NPM_TOKEN}
+        from_secret: NPM_TOKEN
       folder: dist
     when:
       branch:
