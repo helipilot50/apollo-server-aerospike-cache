@@ -29,7 +29,7 @@ steps:
       password:
         from_secret: NPM_PASSWORD
       email: helipilot50@gmail.com
-      #token: $NPM_TOKEN
+      token: from_secret NPM_TOKEN
       folder: dist
     when:
       branch:
