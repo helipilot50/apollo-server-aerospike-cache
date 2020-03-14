@@ -27,5 +27,5 @@ services:
   - name: aerospikedb
     image: aerospike/aerospike-server:latest
     environment:
-      - NAMESPACE: "test"
-      - MEM_GB: 12
+      NAMESPACE: "test"
+      MEM_GB: 12
