@@ -3,12 +3,17 @@ type: docker
 name: apollo-cache-aerospike
 
 steps:
-  - name: test
+  - name: build
     image: node:10
     commands:
       - npm install
       - npm run build
       - npm run test
+    when:
+      branch:
+        - master
+        - develop
+        - feature/*
   - name: npm
     image: plugins/npm
     settings:
@@ -17,9 +22,9 @@ steps:
         from_secret: npm_password
       email: helipilot50@gmail.com
       folder: dist
-trigger:
-  branch:
-    - master
+    when:
+      branch:
+        - master
 services:
   - name: aerospikedb
     image: aerospike/aerospike-server:latest
